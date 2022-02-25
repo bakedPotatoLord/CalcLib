@@ -1,4 +1,15 @@
 
+/**
+ * @author BakedPotatoLord
+*/
+
+/** 
+    @description finds slope between two points
+    @param {number} x1 first x-val
+    @param {number} y1 first y-val
+    @param {number} x2 second x-val
+    @param {number} y2 second y-val
+ */
 function slope(x1,y1,x2,y2){
     return((y1-y2)/(x1-x2))
 }
@@ -31,7 +42,7 @@ function integrate(f,start,stop,accuracy){
     }
 }
 
-
+console.log('test integration function')
 
 //should return 1
 console.log(integrate((x)=>{return 1},0,1,0.001));
@@ -42,17 +53,15 @@ console.log(4*integrate((x)=>{return Math.sqrt(1-x**2)},0,1,0.001));
 //should return 2
 console.log(integrate((x)=>{return 2*Math.cos(x)},0,Math.PI/2,0.00001))
 
-
 /** 
     @description finds the tangent line at a point on a function
+     (positive accuracy approaches from right. negative approaches from left)
     @param {function} f function to derive
     @param {number}  point x-value to integrate at 
     @param {number}  accuracy x-value to integrate at (closer to 0 is more acurate)
-
  */
-
 function derivitiveAtX(f,point,accuracy){
-    if(!(typeof f == 'function' && typeof point == 'number' && typeof accuracy == number)){ 
+    if(!(typeof f == 'function' && typeof point == 'number' && typeof accuracy == 'number')){ 
     throw new Error('use the correct datatypes')
     }else if( accuracy == 0){
         throw new Error('accuracy cannot equal 0')
@@ -64,6 +73,14 @@ function derivitiveAtX(f,point,accuracy){
         }
     }
 }
+//lineBreak
+console.log('\n testing derivitive function')
 
-
+// should return 0
 console.log(derivitiveAtX((x)=>{return Math.cos(x)},0,0.00001))
+
+//should return inf
+console.log(derivitiveAtX((x)=>{return 1/x},0,0.-00001))
+
+//should return 20
+console.log(derivitiveAtX((x)=>{return 20*x},0,0.00001))
