@@ -1,4 +1,7 @@
-var temp = 0;
+
+function slope(x1,y1,x2,y2){
+    return((y1-y2)/(x1-x2))
+}
 
 
 /** 
@@ -8,7 +11,7 @@ var temp = 0;
     @param {number} stop where to stop the intergation
     @param {number} accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
  */
-
+    var temp = 0;
 function integrate(f,start,stop,accuracy){
     //validate input
     if(!(accuracy >=0.00000000001 && accuracy <=1)){
@@ -37,3 +40,21 @@ console.log(4*integrate((x)=>{return Math.sqrt(1-x**2)},0,1,0.001));
 
 //should return 1
 console.log(integrate((x)=>{return Math.cos(x)},0,Math.PI/2,0.00001))
+
+
+/** 
+    @description finds the tangent line at a point on a function
+    @param {function} f function to derive
+    @param {number}  point x-value to integrate at 
+    @param {number}  point x-value to integrate at 
+
+ */
+
+function derivitiveAtX(f,point,accuracy){
+    if(!(typeof f == 'function' && typeof point == 'number' && typeof accuracy == number)){ 
+    throw new Error('use the correct datatypes')
+    }else{
+        if(slop)
+        return 
+    }
+}
