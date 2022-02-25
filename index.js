@@ -2,26 +2,34 @@ var temp = 0;
 
 
 /** 
- * @function  finds the area of a function
+    @description finds the area underneath a function
     @param {function} f function to integrate
     @param {number} start where to start the integration
     @param {number} stop where to stop the intergation
-    @param {number} accuracy a number between 0.001 and 1 (lower being more accurate)
+    @param {number} accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
  */
 
 function integrate(f,start,stop,accuracy){
-    if(!(accuracy >=0.001 && accuracy <=1)){
-        throw new error
+    //validate input
+    if(!(accuracy >=0.00000000001 && accuracy <=1)){
+        throw new Error('use a valid accuracy')
+    }else if(!(typeof f == 'function' && typeof start == 'number' && typeof stop == 'number' && typeof accuracy == 'number' )){
+        throw new Error('use the correct datatypes')
+    }else if(start > stop){
+        throw new Error('start parameter must be less than stop parameter')
+    }else{
+        //if data is good
+        for(var i = start;i<stop;i+=(stop-start)*accuracy){
+            temp+= f(i)*((stop-start)*accuracy);
+        }
+        return temp;
     }
-    for(var i = start;i<stop;i+=(stop-start)*accuracy){
-        temp+= f(i)*((stop-start)*accuracy);
-    }
-    return temp;
 }
 
 
-function integ(x){
-  return 4;
-}
 
-console.log(integrate(integ,0,1,0.001));
+//should return 1
+console.log(integrate((x)=>{return 1},0,1,0.001));
+
+//should return PI
+console.log(4*integrate((x)=>{return Math.sqrt(1-x**2)},0,1,0.001));
