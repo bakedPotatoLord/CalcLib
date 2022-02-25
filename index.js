@@ -13,6 +13,7 @@ function slope(x1,y1,x2,y2){
  */
     var temp = 0;
 function integrate(f,start,stop,accuracy){
+    temp = 0;
     //validate input
     if(!(accuracy >=0.00000000001 && accuracy <=1)){
         throw new Error('use a valid accuracy')
@@ -38,23 +39,31 @@ console.log(integrate((x)=>{return 1},0,1,0.001));
 //should return PI
 console.log(4*integrate((x)=>{return Math.sqrt(1-x**2)},0,1,0.001));
 
-//should return 1
-console.log(integrate((x)=>{return Math.cos(x)},0,Math.PI/2,0.00001))
+//should return 2
+console.log(integrate((x)=>{return 2*Math.cos(x)},0,Math.PI/2,0.00001))
 
 
 /** 
     @description finds the tangent line at a point on a function
     @param {function} f function to derive
     @param {number}  point x-value to integrate at 
-    @param {number}  point x-value to integrate at 
+    @param {number}  accuracy x-value to integrate at (closer to 0 is more acurate)
 
  */
 
 function derivitiveAtX(f,point,accuracy){
     if(!(typeof f == 'function' && typeof point == 'number' && typeof accuracy == number)){ 
     throw new Error('use the correct datatypes')
+    }else if( accuracy == 0){
+        throw new Error('accuracy cannot equal 0')
     }else{
-        if(slop)
-        return 
+        try{
+            return slope(point,f(point),point+accuracy,f(point+accuracy))
+        }catch(error){
+            throw new Error('function is not continous at this point')
+        }
     }
 }
+
+
+console.log(derivitiveAtX((x)=>{return Math.cos(x)},0,0.00001))
