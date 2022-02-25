@@ -21,6 +21,7 @@ function integrate(f,start,stop,accuracy){
         //if data is good
         for(var i = start;i<stop;i+=(stop-start)*accuracy){
             temp+= f(i)*((stop-start)*accuracy);
+            //console.log(i,temp)
         }
         return temp;
     }
@@ -33,3 +34,6 @@ console.log(integrate((x)=>{return 1},0,1,0.001));
 
 //should return PI
 console.log(4*integrate((x)=>{return Math.sqrt(1-x**2)},0,1,0.001));
+
+//should return 1
+console.log(integrate((x)=>{return Math.cos(x)},0,Math.PI/2,0.00001))
