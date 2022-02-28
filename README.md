@@ -1,5 +1,5 @@
 # CalcLib.js
-A lightweigt and versatile set of functions for basic calculus operations.
+A lightweight and versatile set of functions for basic calculus operations.
 
 created by @bakedPotatoLord
 
