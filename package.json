@@ -1,0 +1,21 @@
+{
+  "name": "calclib",
+  "version": "1.0.0",
+  "type":"module",
+  "description": "A lightweight and versatile set of functions for basic calculus operations.",
+  "main": "lib.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bakedPotatoLord/CalcLib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bakedPotatoLord/CalcLib/issues"
+  },
+  "homepage": "https://github.com/bakedPotatoLord/CalcLib#readme"
+}
