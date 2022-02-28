@@ -4,7 +4,7 @@
 */
 
 
-import {integrate,slope,derivitiveAtX} from "lib.js"
+import {integrate,slope,derivitiveAtX} from "./lib.js"
 
 
 console.log('test integration function')

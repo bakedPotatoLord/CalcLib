@@ -8,7 +8,7 @@
     @param {number} x2 second x-val
     @param {number} y2 second y-val
  */
-function slope(x1,y1,x2,y2){
+export function slope(x1,y1,x2,y2){
     return((y1-y2)/(x1-x2));
 }
 /** 
@@ -18,7 +18,7 @@ function slope(x1,y1,x2,y2){
     @param {number} stop where to stop the intergation
     @param {number} accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
-function integrate(f,start,stop,accuracy){
+export function integrate(f,start,stop,accuracy){
     var temp = 0;
     //validate input
     if(!(accuracy >=0.00000000001 && accuracy <=1)){
@@ -43,7 +43,7 @@ function integrate(f,start,stop,accuracy){
     @param {number}  point x-value to integrate at 
     @param {number}  accuracy x-value to integrate at (closer to 0 is more acurate)
     */
-function derivitiveAtX(f,point,accuracy){
+export function derivitiveAtX(f,point,accuracy){
     if(!(typeof f == 'function' && typeof point == 'number' && typeof accuracy == 'number')){ 
     throw new Error('use the correct datatypes');
     }else if( accuracy == 0){
