@@ -1,6 +1,7 @@
 {
   "name": "calclib",
   "version": "1.0.0",
+  "type":"module",
   "description": "A lightweight and versatile set of functions for basic calculus operations.",
   "main": "lib.js",
   "scripts": {
