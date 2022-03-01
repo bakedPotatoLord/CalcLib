@@ -1,6 +1,6 @@
 {
   "name": "@bakedpotatolord/calclib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A lightweight and versatile set of functions for basic calculus operations.",
   "main": "lib.js",

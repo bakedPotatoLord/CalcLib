@@ -15,7 +15,7 @@ export function slope(x1,y1,x2,y2){
     @description finds the area underneath a function
     @param {function} f function to integrate
     @param {number} start where to start the integration
-    @param {number} stop where to stop the intergation
+    @param {number} stop where to stop the integration
     @param {number} accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
 export function integrate(f,start,stop,accuracy){
