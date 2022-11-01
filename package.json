@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/bakedPotatoLord/CalcLib.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["calculus","library"],
+  "author": "@bakedpotatolord",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bakedPotatoLord/CalcLib/issues"
