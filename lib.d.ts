@@ -1,6 +1,9 @@
 /**
  * @author BakedPotatoLord
 */
+declare type derivableFunction = {
+    (inp: number): number;
+};
 /**
 @description finds slope between two points
 @param  x1 first x-val
@@ -8,9 +11,7 @@
 @param x2 second x-val
 @param y2 second y-val
 */
-export function slope(x1, y1, x2, y2) {
-    return ((y1 - y2) / (x1 - x2));
-}
+export declare function slope(x1: number, y1: number, x2: number, y2: number): number;
 /**
     @description finds the area underneath a function
     @param  f function to integrate
@@ -18,14 +19,7 @@ export function slope(x1, y1, x2, y2) {
     @param  stop where to stop the integration
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
-export function integrate(f, start, stop, accuracy) {
-    let temp = 0;
-    //if data is good
-    for (var i = start; i < stop; i += (stop - start) * accuracy) {
-        temp += f(i) * ((stop - start) * accuracy);
-    }
-    return temp;
-}
+export declare function integrate(f: derivableFunction, start: number, stop: number, accuracy: number): number;
 /**
     @description finds the tangent line at a point on a function
         (positive accuracy approaches from right. negative approaches from left)
@@ -33,16 +27,5 @@ export function integrate(f, start, stop, accuracy) {
     @param  point x-value to integrate at
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
     */
-export function derivitiveAtX(f, point, accuracy) {
-    if (accuracy == 0) {
-        throw new Error('accuracy cannot equal 0');
-    }
-    else {
-        try {
-            return slope(point, f(point), point + accuracy, f(point + accuracy));
-        }
-        catch (error) {
-            throw new Error('function is not continous at this point');
-        }
-    }
-}
+export declare function derivitiveAtX(f: derivableFunction, point: any, accuracy: number): number;
+export {};
