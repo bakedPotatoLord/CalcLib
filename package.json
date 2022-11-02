@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "type": "module",
   "description": "A lightweight and versatile set of functions for basic calculus operations.",
-  "main": "lib.js",
+  "main": "./build/index.js",
   "scripts": {
     "test": "node tests.js"
   },
