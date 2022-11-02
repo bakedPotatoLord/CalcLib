@@ -1,7 +1,7 @@
 /**
  * @author BakedPotatoLord
 */
-import { integrate, derivitiveAtX } from "./lib.js";
+import { integrate, derivitiveAtX } from "index.js";
 console.log('test integration function');
 //should return 1
 console.log(integrate((x) => { return 1; }, 0, 1, 0.001));

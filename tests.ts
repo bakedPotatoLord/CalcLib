@@ -4,7 +4,7 @@
 */
 
 
-import {integrate,derivitiveAtX} from "./lib.js"
+import {integrate,derivitiveAtX} from "index.js"
 
 
 console.log('test integration function')

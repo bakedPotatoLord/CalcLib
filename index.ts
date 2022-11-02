@@ -1,5 +1,5 @@
 /**
- * @author BakedPotatoLord
+ * @author BakedPotatoLord  
 */
 
 type derivableFunction ={
