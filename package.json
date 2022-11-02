@@ -1,6 +1,6 @@
 {
   "name": "@bakedpotatolord/calclib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "A lightweight and versatile set of functions for basic calculus operations.",
   "main": "./build/index.js",
@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/bakedPotatoLord/CalcLib.git"
   },
-  "keywords": ["calculus","library"],
+  "keywords": [
+    "calculus",
+    "library"
+  ],
   "author": "@bakedpotatolord",
   "license": "ISC",
   "bugs": {
