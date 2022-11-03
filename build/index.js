@@ -22,8 +22,8 @@ export function slope(x1, y1, x2, y2) {
 export function integrate(f, start, stop, accuracy) {
     let temp = 0;
     //if data is good
-    for (let i = start; i < stop; i += (stop - start) * accuracy) {
-        temp += f(i) * ((stop - start) * accuracy);
+    for (let i = start; i < (stop - accuracy); i += (stop - start) * accuracy) {
+        temp += ((f(i) + f(i + accuracy)) / 2) * ((stop - start) * accuracy);
     }
     return temp;
 }

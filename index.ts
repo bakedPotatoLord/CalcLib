@@ -5,6 +5,9 @@
 type derivableFunction ={
     (inp:number):number
 }
+type derivableFunction2D ={
+    (inp:number,inp2:number):number
+}
 
 export const Tau = 2*Math.PI
 
@@ -28,8 +31,8 @@ export function slope(x1:number,y1:number,x2:number,y2:number){
 export function integrate(f:derivableFunction,start:number,stop:number,accuracy:number){
     let temp = 0;
     //if data is good
-    for(let i = start;i<stop;i+=(stop-start)*accuracy){
-        temp+= f(i)*((stop-start)*accuracy);
+    for(let i = start;i<(stop-accuracy);i+=(stop-start)*accuracy){
+        temp+= ((f(i)+f(i+accuracy))/2)*((stop-start)*accuracy);
     }
     return temp;
 }
