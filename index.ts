@@ -6,6 +6,8 @@ type derivableFunction ={
     (inp:number):number
 }
 
+export const Tau = 2*Math.PI
+
 /** 
 @description finds slope between two points
 @param  x1 first x-val
@@ -17,7 +19,7 @@ export function slope(x1:number,y1:number,x2:number,y2:number){
     return((y1-y2)/(x1-x2));
 }
 /** 
-    @description finds the area underneath a function
+    @description returns the area underneath a function, between two points
     @param  f function to integrate
     @param  start where to start the integration
     @param  stop where to stop the integration
@@ -26,21 +28,21 @@ export function slope(x1:number,y1:number,x2:number,y2:number){
 export function integrate(f:derivableFunction,start:number,stop:number,accuracy:number){
     let temp = 0;
     //if data is good
-    for(var i = start;i<stop;i+=(stop-start)*accuracy){
+    for(let i = start;i<stop;i+=(stop-start)*accuracy){
         temp+= f(i)*((stop-start)*accuracy);
     }
     return temp;
 }
 
 /** 
-    @description finds the tangent line at a point on a function
+    @description returns the slope of the tangent line at a point on a function
         (positive accuracy approaches from right. negative approaches from left)
     @param  f function to derive
     @param  point x-value to integrate at 
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
     */
 
-export function derivitiveAtX(f:derivableFunction,point,accuracy: number){
+export function derivitiveAtX(f:derivableFunction,point:number,accuracy: number){
     if( accuracy == 0){
         throw new Error('accuracy cannot equal 0');
     }else{
@@ -49,6 +51,23 @@ export function derivitiveAtX(f:derivableFunction,point,accuracy: number){
         }catch(error){
             throw new Error('function is not continous at this point');
         }
+    }
+}
+
+/** 
+    @description returns the area of a function revolved around a given axis, between two points
+    @param  f function to integrate
+    @param  axis axis to rotate the area around
+    @param  start where to start the integration
+    @param  stop where to stop the integration
+    @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
+    */
+
+export function areaAroundAxis(f:derivableFunction, axis:'x'|'y',start:number,stop:number,accuracy:number){
+    if(axis == 'x'){
+        return integrate((x)=>Math.PI*(f(x)**2),start,stop, accuracy)
+    }else if(axis = 'y'){
+        return integrate((x)=>Tau*x*f(x),start,stop, accuracy)
     }
 }
     
