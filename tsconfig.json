@@ -6,5 +6,7 @@
       "lib":["DOM","ESNext"],
       "declaration": true,
       "outDir": "./build"
-  }
+  },
+  "include": ["*.ts"],
+  "exclude":["./build/*"]
 }
