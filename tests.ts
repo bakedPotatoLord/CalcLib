@@ -19,7 +19,7 @@ console.log(
   
   derivitiveAtX((x)=>20*x,0,0.00001), //returns 20
   
-  derivitiveAtX((x)=>1/x,0,0.-0.0001), //returns INFINITY
+  derivitiveAtX((x)=>1/x,0,-0.0001), //returns INFINITY
 
   areaAroundAxis((x)=>2,'x',0,1,0.0001), // returns 4*PI ~= 12.566
 
