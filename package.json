@@ -5,7 +5,8 @@
   "description": "A lightweight and versatile set of functions for basic calculus operations.",
   "main": "./build/index.js",
   "scripts": {
-    "test": "node tests.js"
+    "test": "node build/tests.js",
+    "start": "node build/index.js"
   },
   "repository": {
     "type": "git",
