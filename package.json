@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/bakedPotatoLord/CalcLib/issues"
   },
-  "homepage": "https://github.com/bakedPotatoLord/CalcLib#readme"
+  "homepage": "https://github.com/bakedPotatoLord/CalcLib#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
 }
