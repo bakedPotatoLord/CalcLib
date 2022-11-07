@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/bakedPotatoLord/CalcLib#readme",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "typescript": "^4.8.4"
   }
 }
