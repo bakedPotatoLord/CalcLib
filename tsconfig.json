@@ -8,5 +8,5 @@
       "outDir": "./build"
   },
   "include": ["*.ts"],
-  "exclude":["./build/*"]
+  "exclude":["./build/*","*.test.ts"]
 }
