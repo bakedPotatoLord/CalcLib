@@ -1,4 +1,0 @@
-/**
- * @author BakedPotatoLord
-*/
-export {};
