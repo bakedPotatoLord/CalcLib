@@ -14,6 +14,4 @@ test("derivitives at x",()=>{
 test("areas around axis",()=>{
   expect(areaAroundAxis((x)=>2,'x',0,1,0.0001)).toBeCloseTo(4*Math.PI,0.001)
   expect(areaAroundAxis((x)=>x**2,'y',0,1,0.0001)).toBeCloseTo(Math.PI/2,0.001)
-
-  expect(false).toBe(true)
 })
