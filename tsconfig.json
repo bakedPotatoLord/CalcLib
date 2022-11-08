@@ -5,8 +5,9 @@
       "module": "ESNext",
       "lib":["DOM","ESNext"],
       "declaration": true,
-      "outDir": "./build"
+      "outDir": "./build",
+      "esModuleInterop": true
   },
   "include": ["*.ts"],
-  "exclude":["./build/*","*.test.ts"]
+  "exclude":["./build/*","*.test.ts","node_modules","*.config.ts"]
 }
