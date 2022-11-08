@@ -4,11 +4,11 @@
 
 /**@description a function in terms of x such that f(x)=y OR, an y value*/
 type derivableFunction ={
-    (x:number):number | number
+    (x:number):number
 }
 /**@description a function in terms of x and y such that f(x,y)=z OR, an z value*/
 type derivableFunction2D ={
-    (x:number,y:number):number | number
+    (x:number,y:number):number
 }
 
 export const Tau = 2*Math.PI
