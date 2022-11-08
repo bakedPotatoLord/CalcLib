@@ -2,11 +2,19 @@
  * @author BakedPotatoLord  
 */
 
+/**
+    @description a function in terms of x such that f(x)=y
+*/
 type derivableFunction ={
-    (inp:number):number
+    (x:number):number
 }
+
+/**
+    @description a function in terms of x and y such that f(x,y)=z
+*/
+
 type derivableFunction2D ={
-    (inp:number,inp2:number):number
+    (x:number,y:number):number
 }
 
 export const Tau = 2*Math.PI
