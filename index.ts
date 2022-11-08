@@ -12,19 +12,6 @@ export type derivableFunction ={
 export type derivableFunction2D ={
     (x:number,y:number):number
 }
-/**
- * @description a shape represented by 4 bounds
- * @param yUpper the upper bound of the shape on the y axis
- * @param yLower the lower bound of the shape on the y axis
- * @param xLower the lower bound of the shape on the x axis
- * @param xUpper the upper bound of the shape on the x axis
- */
-export type boundedShape={
-    yLower:derivableFunction|number,
-    yUpper:derivableFunction|number,
-    xLower:number,
-    xUpper:number,
-}
 
 export const Tau = 2*Math.PI
 
