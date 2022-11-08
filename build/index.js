@@ -1,17 +1,8 @@
 /**
  * @author BakedPotatoLord
 */
+import { createDerivableFunction2D, slope } from 'helpers';
 export const Tau = 2 * Math.PI;
-/**
-@description finds slope between two points
-@param  x1 first x-val
-@param y1 first y-val
-@param x2 second x-val
-@param y2 second y-val
-*/
-export function slope(x1, y1, x2, y2) {
-    return ((y1 - y2) / (x1 - x2));
-}
 /**
     @description returns the area underneath a function, between two points
     @param  f function to integrate
@@ -20,10 +11,29 @@ export function slope(x1, y1, x2, y2) {
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
 export function integrate(f, start, stop, accuracy) {
+    let fn = createDerivableFunction(f);
     let temp = 0;
     //if data is good
     for (let i = start; i < (stop - accuracy); i += (stop - start) * accuracy) {
-        temp += ((f(i) + f(i + accuracy)) / 2) * ((stop - start) * accuracy);
+        temp += ((fn(i) + fn(i + accuracy)) / 2) * ((stop - start) * accuracy);
+    }
+    return temp;
+}
+/**
+    @description returns the area of a shape bounded by the curve produced by the function, bound inputs, and the xy axis
+    @param  f function to integrate
+    @param  start where to start the integration
+    @param  stop where to stop the integration
+    @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
+    */
+export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
+    let fn = createDerivableFunction2D(f);
+    let temp = 0;
+    for (let i = xLower; i < (xUpper - accuracy); i += (xUpper - xLower) * accuracy) {
+        for (let j = yLower; i < (yUpper - accuracy); i += (yUpper - yLower) * accuracy) {
+            //for all xy pairs,
+            temp += ((fn(i, j) + fn(i + accuracy, j) + fn(i, j + accuracy) + fn(i + accuracy, j + accuracy)) / 4) * ((xUpper - xLower) * (yUpper - yLower) * accuracy);
+        }
     }
     return temp;
 }
@@ -35,12 +45,19 @@ export function integrate(f, start, stop, accuracy) {
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
     */
 export function derivitiveAtX(f, point, accuracy) {
+    let fn;
+    if (typeof f == 'number') {
+        fn = (x) => f;
+    }
+    else if (typeof f == 'function') {
+        fn = f;
+    }
     if (accuracy == 0) {
         throw new Error('accuracy cannot equal 0');
     }
     else {
         try {
-            return slope(point, f(point), point + accuracy, f(point + accuracy));
+            return slope(point, fn(point), point + accuracy, fn(point + accuracy));
         }
         catch (error) {
             throw new Error('function is not continous at this point');
@@ -54,12 +71,21 @@ export function derivitiveAtX(f, point, accuracy) {
     @param  start where to start the integration
     @param  stop where to stop the integration
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
-    */
+*/
 export function areaAroundAxis(f, axis, start, stop, accuracy) {
+    let fn = createDerivableFunction(f);
     if (axis == 'x') {
-        return integrate((x) => Math.PI * (f(x) ** 2), start, stop, accuracy);
+        return integrate((x) => Math.PI * (fn(x) ** 2), start, stop, accuracy);
     }
     else if (axis = 'y') {
-        return integrate((x) => Tau * x * f(x), start, stop, accuracy);
+        return integrate((x) => Tau * x * fn(x), start, stop, accuracy);
+    }
+}
+export function createDerivableFunction(f) {
+    if (typeof f == 'number') {
+        return (x) => f;
+    }
+    else if (typeof f == 'function') {
+        return f;
     }
 }
