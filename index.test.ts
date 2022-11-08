@@ -1,4 +1,4 @@
-import {integrate,derivitiveAtX, areaAroundAxis} from "./index"
+import {integrate,derivitiveAtX, areaAroundAxis, integrate2D} from "./index"
 
 test("integration",()=>{
   expect(integrate((x)=> 1,0,1,0.001)).toBeCloseTo(1,0.001)
@@ -15,3 +15,10 @@ test("areas around axis",()=>{
   expect(areaAroundAxis((x)=>2,'x',0,1,0.0001)).toBeCloseTo(4*Math.PI,0.001)
   expect(areaAroundAxis((x)=>x**2,'y',0,1,0.0001)).toBeCloseTo(Math.PI/2,0.001)
 })
+
+test("2dintegral",()=>{
+  expect(integrate2D((x,y)=>1,0,1,0,1,0.001)).toBeCloseTo(1,0.0001)
+  expect(integrate2D((x,y)=>Math.cos(x)*Math.cos(y),0,1,0,1,0.00001)).toBeCloseTo(0.708,0.0001)
+})
+
+
