@@ -1,4 +1,4 @@
-import type { derivableFunction, derivableFunction2D } from 'index';
+import type { derivableFunction, derivableFunction2D } from './index';
 /**
 @description finds slope between two points
 @param  x1 first x-val

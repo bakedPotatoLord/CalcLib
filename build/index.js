@@ -1,7 +1,7 @@
 /**
  * @author BakedPotatoLord
 */
-import { createDerivableFunction2D, slope } from 'helpers';
+import { createDerivableFunction2D, slope } from './helpers';
 export const Tau = 2 * Math.PI;
 /**
     @description returns the area underneath a function, between two points
