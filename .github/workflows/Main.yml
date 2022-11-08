@@ -1,4 +1,4 @@
-name: jest-test
+name: Tests
 on: push
 jobs:
   build:
