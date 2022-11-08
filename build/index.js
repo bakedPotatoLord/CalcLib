@@ -1,7 +1,7 @@
 /**
  * @author BakedPotatoLord
 */
-import { createDerivableFunction2D, slope } from './helpers';
+import { checkAccuracy, createDerivableFunction, createDerivableFunction2D, slope } from './helpers';
 export const Tau = 2 * Math.PI;
 /**
     @description returns the area underneath a function, between two points
@@ -12,6 +12,7 @@ export const Tau = 2 * Math.PI;
     */
 export function integrate(f, xLower, xUpper, accuracy) {
     let fn = createDerivableFunction(f);
+    checkAccuracy(accuracy);
     let temp = 0;
     //if data is good
     for (let i = xLower; i < (xUpper - accuracy); i += (xUpper - xLower) * accuracy) {
@@ -28,6 +29,7 @@ export function integrate(f, xLower, xUpper, accuracy) {
     */
 export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
     let fn = createDerivableFunction2D(f);
+    checkAccuracy(accuracy);
     let temp = 0;
     for (let i = xLower; i < (xUpper - accuracy); i += (xUpper - xLower) * accuracy) {
         for (let j = yLower; i < (yUpper - accuracy); i += (yUpper - yLower) * accuracy) {
@@ -46,16 +48,12 @@ export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
     */
 export function derivitiveAtX(f, point, accuracy) {
     let fn = createDerivableFunction(f);
-    if (accuracy == 0) {
-        throw new Error('accuracy cannot equal 0');
+    checkAccuracy(accuracy);
+    try {
+        return slope(point, fn(point), point + accuracy, fn(point + accuracy));
     }
-    else {
-        try {
-            return slope(point, fn(point), point + accuracy, fn(point + accuracy));
-        }
-        catch (error) {
-            throw new Error('function is not continous at this point');
-        }
+    catch (error) {
+        throw new Error('function is not continous at this point');
     }
 }
 /**
@@ -68,18 +66,11 @@ export function derivitiveAtX(f, point, accuracy) {
 */
 export function areaAroundAxis(f, axis, xLower, xUpper, accuracy) {
     let fn = createDerivableFunction(f);
+    checkAccuracy(accuracy);
     if (axis == 'x') {
         return integrate((x) => Math.PI * (fn(x) ** 2), xLower, xUpper, accuracy);
     }
     else if (axis = 'y') {
         return integrate((x) => Tau * x * fn(x), xLower, xUpper, accuracy);
-    }
-}
-export function createDerivableFunction(f) {
-    if (typeof f == 'number') {
-        return (x) => f;
-    }
-    else if (typeof f == 'function') {
-        return f;
     }
 }

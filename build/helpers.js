@@ -24,3 +24,7 @@ export function createDerivableFunction2D(f) {
         return f;
     }
 }
+export function checkAccuracy(acc) {
+    if (acc === 0)
+        throw new Error("accuracy cannot equal zero");
+}

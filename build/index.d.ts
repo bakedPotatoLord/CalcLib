@@ -56,4 +56,3 @@ export declare function derivitiveAtX(f: derivableFunction | number, point: numb
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
 export declare function areaAroundAxis(f: derivableFunction | number, axis: 'x' | 'y', xLower: number, xUpper: number, accuracy: number): number;
-export declare function createDerivableFunction(f: derivableFunction | number): derivableFunction;

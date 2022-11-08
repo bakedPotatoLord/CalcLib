@@ -2,7 +2,7 @@
  * @author BakedPotatoLord  
 */
 
-import {createDerivableFunction2D, slope} from './helpers';
+import {checkAccuracy, createDerivableFunction, createDerivableFunction2D, slope} from './helpers';
 
 /**@description a function in terms of x such that f(x)=y */
 export type derivableFunction ={
@@ -37,7 +37,8 @@ export const Tau = 2*Math.PI
     */
 export function integrate(f:derivableFunction|number,xLower:number,xUpper:number,accuracy:number){
     let fn = createDerivableFunction(f)
-
+    checkAccuracy(accuracy)
+    
     let temp = 0;
     //if data is good
     for(let i = xLower;i<(xUpper-accuracy);i+=(xUpper-xLower)*accuracy){
@@ -56,6 +57,7 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
     export function integrate2D(f:derivableFunction2D|number,xLower:number,xUpper:number,yLower:number,yUpper:number,accuracy:number){
 
         let fn = createDerivableFunction2D(f)
+        checkAccuracy(accuracy)
 
         let temp = 0;
         for(let i = xLower;i<(xUpper-accuracy);i+=(xUpper-xLower)*accuracy){
@@ -78,16 +80,14 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
 export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: number){
 
     let fn = createDerivableFunction(f)
+    checkAccuracy(accuracy)
 
-    if( accuracy == 0){
-        throw new Error('accuracy cannot equal 0');
-    }else{
-        try{
-            return slope(point,fn(point),point+accuracy,fn(point+accuracy));
-        }catch(error){
-            throw new Error('function is not continous at this point');
-        }
+    try{
+        return slope(point,fn(point),point+accuracy,fn(point+accuracy));
+    }catch(error){
+        throw new Error('function is not continous at this point');
     }
+
 }
 
 /** 
@@ -101,6 +101,7 @@ export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: 
 
 export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:number,xUpper:number,accuracy:number){
     let fn= createDerivableFunction(f)
+    checkAccuracy(accuracy)
     if(axis == 'x'){
         return integrate((x)=>Math.PI*(fn(x)**2),xLower,xUpper, accuracy)
     }else if(axis = 'y'){
@@ -108,11 +109,4 @@ export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:n
     }
 }
 
-export function createDerivableFunction(f:derivableFunction|number):derivableFunction{
-    if(typeof f == 'number'){
-        return (x:number)=>f
-    }else if(typeof f == 'function'){
-        return f
-    }
-}
     

@@ -25,3 +25,7 @@ export function createDerivableFunction2D(f:derivableFunction2D|number):derivabl
       return f
   }
 }
+
+export function checkAccuracy(acc:number){
+  if(acc === 0) throw new Error("accuracy cannot equal zero")
+}

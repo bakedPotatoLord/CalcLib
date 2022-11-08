@@ -9,3 +9,4 @@ import type { derivableFunction, derivableFunction2D } from './index';
 export declare function slope(x1: number, y1: number, x2: number, y2: number): number;
 export declare function createDerivableFunction(f: derivableFunction | number): derivableFunction;
 export declare function createDerivableFunction2D(f: derivableFunction2D | number): derivableFunction2D;
+export declare function checkAccuracy(acc: number): void;
