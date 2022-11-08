@@ -77,12 +77,7 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
 
 export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: number){
 
-    let fn:derivableFunction
-    if(typeof f == 'number'){
-        fn = (x:number)=>f
-    }else if(typeof f == 'function'){
-        fn = f
-    }
+    let fn = createDerivableFunction(f)
 
     if( accuracy == 0){
         throw new Error('accuracy cannot equal 0');

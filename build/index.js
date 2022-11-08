@@ -45,13 +45,7 @@ export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
     */
 export function derivitiveAtX(f, point, accuracy) {
-    let fn;
-    if (typeof f == 'number') {
-        fn = (x) => f;
-    }
-    else if (typeof f == 'function') {
-        fn = f;
-    }
+    let fn = createDerivableFunction(f);
     if (accuracy == 0) {
         throw new Error('accuracy cannot equal 0');
     }
