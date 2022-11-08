@@ -2,8 +2,8 @@ import {integrate,derivitiveAtX, areaAroundAxis, integrate2D} from "./index"
 
 test("integration",()=>{
   expect(integrate(1,0,1,0.001)).toBeCloseTo(1,0.001)
-  expect(4*integrate((x)=> Math.sqrt(1-x**2),0,1,0.0000001)).toBeCloseTo(Math.PI,0.001)
-  expect(integrate((x)=> 2*Math.cos(x),0,Math.PI/2,0.00001)).toBeCloseTo(2,0.001)
+  expect(4*integrate((x)=> Math.sqrt(1-x**2),0,1,0.0001)).toBeCloseTo(Math.PI,0.001)
+  expect(integrate((x)=> 2*Math.cos(x),0,Math.PI/2,0.0001)).toBeCloseTo(2,0.001)
 })
 
 test("derivitives at x",()=>{
