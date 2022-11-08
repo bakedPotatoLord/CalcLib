@@ -1,5 +1,5 @@
 # CalcLib.js
-<img src='https://github.com/bakedpotatolord/calclib/actions/workflows/main.yml/badge.svg'><br>
+<img src='https://github.com/bakedpotatolord/calclib/actions/workflows/Main.yml/badge.svg'><br>
 
 A lightweight and versatile set of functions for basic calculus operations.
 
