@@ -49,12 +49,7 @@ export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
 export function derivitiveAtX(f, point, accuracy) {
     let fn = createDerivableFunction(f);
     checkAccuracy(accuracy);
-    try {
-        return slope(point, fn(point), point + accuracy, fn(point + accuracy));
-    }
-    catch (error) {
-        throw new Error('function is not continous at this point');
-    }
+    return slope(point, fn(point), point + accuracy, fn(point + accuracy));
 }
 /**
     @description returns the area of a function revolved around a given axis, between two points

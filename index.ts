@@ -78,16 +78,9 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
     */
 
 export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: number){
-
     let fn = createDerivableFunction(f)
     checkAccuracy(accuracy)
-
-    try{
-        return slope(point,fn(point),point+accuracy,fn(point+accuracy));
-    }catch(error){
-        throw new Error('function is not continous at this point');
-    }
-
+    return slope(point,fn(point),point+accuracy,fn(point+accuracy));
 }
 
 /** 

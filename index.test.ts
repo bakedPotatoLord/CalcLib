@@ -7,8 +7,9 @@ test("integration",()=>{
 })
 
 test("derivitives at x",()=>{
-  expect(derivitiveAtX((x)=>20*x,0,0.00001)).toBeCloseTo(20,0.001)
-  expect(derivitiveAtX((x)=>1/x,0,-0.0001)).toBeCloseTo(Infinity)
+  expect(derivitiveAtX((x)=>20*x,0,0.001)).toBeCloseTo(20,0.001)
+  expect(derivitiveAtX((x)=>1/x,0,-0.001)).toBeCloseTo(Infinity)
+  expect(derivitiveAtX((x)=>(x*(x-4))/(x/4),4,0.0001))
 })
 
 test("areas around axis",()=>{
