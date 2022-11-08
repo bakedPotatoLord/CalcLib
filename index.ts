@@ -12,24 +12,36 @@ export type derivableFunction ={
 export type derivableFunction2D ={
     (x:number,y:number):number
 }
+/**
+ * @description a shape represented by 4 bounds
+ * @param yUpper the upper bound of the shape on the y axis
+ * @param yLower the lower bound of the shape on the y axis
+ * @param xLower the lower bound of the shape on the x axis
+ * @param xUpper the upper bound of the shape on the x axis
+ */
+export type boundedShape={
+    yLower:derivableFunction|number,
+    yUpper:derivableFunction|number,
+    xLower:number,
+    xUpper:number,
+}
 
 export const Tau = 2*Math.PI
-
 
 /** 
     @description returns the area underneath a function, between two points
     @param  f function to integrate
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
-export function integrate(f:derivableFunction|number,start:number,stop:number,accuracy:number){
+export function integrate(f:derivableFunction|number,xLower:number,xUpper:number,accuracy:number){
     let fn = createDerivableFunction(f)
 
     let temp = 0;
     //if data is good
-    for(let i = start;i<(stop-accuracy);i+=(stop-start)*accuracy){
-        temp+= ((fn(i)+fn(i+accuracy))/2)*((stop-start)*accuracy);
+    for(let i = xLower;i<(xUpper-accuracy);i+=(xUpper-xLower)*accuracy){
+        temp+= ((fn(i)+fn(i+accuracy))/2)*((xUpper-xLower)*accuracy);
     }
     return temp;
 }
@@ -37,8 +49,8 @@ export function integrate(f:derivableFunction|number,start:number,stop:number,ac
 /** 
     @description returns the area of a shape bounded by the curve produced by the function, bound inputs, and the xy axis
     @param  f function to integrate
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
     export function integrate2D(f:derivableFunction2D|number,xLower:number,xUpper:number,yLower:number,yUpper:number,accuracy:number){
@@ -87,17 +99,17 @@ export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: 
     @description returns the area of a function revolved around a given axis, between two points
     @param  f function to integrate
     @param  axis axis to rotate the area around
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
 
-export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',start:number,stop:number,accuracy:number){
+export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:number,xUpper:number,accuracy:number){
     let fn= createDerivableFunction(f)
     if(axis == 'x'){
-        return integrate((x)=>Math.PI*(fn(x)**2),start,stop, accuracy)
+        return integrate((x)=>Math.PI*(fn(x)**2),xLower,xUpper, accuracy)
     }else if(axis = 'y'){
-        return integrate((x)=>Tau*x*fn(x),start,stop, accuracy)
+        return integrate((x)=>Tau*x*fn(x),xLower,xUpper, accuracy)
     }
 }
 

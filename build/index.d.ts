@@ -9,20 +9,33 @@ export declare type derivableFunction = {
 export declare type derivableFunction2D = {
     (x: number, y: number): number;
 };
+/**
+ * @description a shape represented by 4 bounds
+ * @param yUpper the upper bound of the shape on the y axis
+ * @param yLower the lower bound of the shape on the y axis
+ * @param xLower the lower bound of the shape on the x axis
+ * @param xUpper the upper bound of the shape on the x axis
+ */
+export declare type boundedShape = {
+    yLower: derivableFunction | number;
+    yUpper: derivableFunction | number;
+    xLower: number;
+    xUpper: number;
+};
 export declare const Tau: number;
 /**
     @description returns the area underneath a function, between two points
     @param  f function to integrate
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
-export declare function integrate(f: derivableFunction | number, start: number, stop: number, accuracy: number): number;
+export declare function integrate(f: derivableFunction | number, xLower: number, xUpper: number, accuracy: number): number;
 /**
     @description returns the area of a shape bounded by the curve produced by the function, bound inputs, and the xy axis
     @param  f function to integrate
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
     */
 export declare function integrate2D(f: derivableFunction2D | number, xLower: number, xUpper: number, yLower: number, yUpper: number, accuracy: number): number;
@@ -38,9 +51,9 @@ export declare function derivitiveAtX(f: derivableFunction | number, point: numb
     @description returns the area of a function revolved around a given axis, between two points
     @param  f function to integrate
     @param  axis axis to rotate the area around
-    @param  start where to start the integration
-    @param  stop where to stop the integration
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
-export declare function areaAroundAxis(f: derivableFunction | number, axis: 'x' | 'y', start: number, stop: number, accuracy: number): number;
+export declare function areaAroundAxis(f: derivableFunction | number, axis: 'x' | 'y', xLower: number, xUpper: number, accuracy: number): number;
 export declare function createDerivableFunction(f: derivableFunction | number): derivableFunction;
