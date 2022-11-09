@@ -21,7 +21,7 @@ export const Tau = 2*Math.PI
     @param  xLower lower bound of the function
     @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
-    */
+*/
 export function integrate(f:derivableFunction|number,xLower:number,xUpper:number,accuracy:number){
     let fn = createDerivableFunction(f)
     checkAccuracy(accuracy)
@@ -35,26 +35,25 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
 }
 
 /** 
-    @description returns the area of a shape bounded by the curve produced by the function, bound inputs, and the xy axis
+    @description returns the area of a shape bounded by the surface produced by the function, bound inputs, and the xy axis
     @param  f function to integrate
     @param  xLower lower bound of the function
     @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
-    */
-    export function integrate2D(f:derivableFunction2D|number,xLower:number,xUpper:number,yLower:number,yUpper:number,accuracy:number){
+*/
+export function integrate2D(f:derivableFunction2D|number,xLower:number,xUpper:number,yLower:number,yUpper:number,accuracy:number){
+    let fn = createDerivableFunction2D(f)
+    checkAccuracy(accuracy)
 
-        let fn = createDerivableFunction2D(f)
-        checkAccuracy(accuracy)
-
-        let temp = 0;
-        for(let i = xLower;i<(xUpper-accuracy);i+=(xUpper-xLower)*accuracy){
-            for(let j = yLower;i<(yUpper-accuracy);i+=(yUpper-yLower)*accuracy){
-            //for all xy pairs,
-            temp+= ((fn(i,j)+fn(i+accuracy,j)+fn(i,j+accuracy)+fn(i+accuracy,j+accuracy))/4)*((xUpper-xLower)*(yUpper-yLower)*accuracy);
-            }
+    let temp = 0;
+    for(let i = xLower;i<(xUpper-accuracy);i+=(xUpper-xLower)*accuracy){
+        for(let j = yLower;i<(yUpper-accuracy);i+=(yUpper-yLower)*accuracy){
+        //for all xy pairs,
+        temp+= ((fn(i,j)+fn(i+accuracy,j)+fn(i,j+accuracy)+fn(i+accuracy,j+accuracy))/4)*((xUpper-xLower)*(yUpper-yLower)*accuracy);
         }
-        return temp;
     }
+    return temp;
+}
 
 /** 
     @description returns the slope of the tangent line at a point on a function
@@ -62,8 +61,7 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
     @param  f function to derive
     @param  point x-value to integrate at 
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
-    */
-
+*/
 export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: number){
     let fn = createDerivableFunction(f)
     checkAccuracy(accuracy)
@@ -78,7 +76,6 @@ export function derivitiveAtX(f:derivableFunction|number,point:number,accuracy: 
     @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
-
 export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:number,xUpper:number,accuracy:number){
     let fn= createDerivableFunction(f)
     checkAccuracy(accuracy)
@@ -88,5 +85,4 @@ export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:n
         return integrate((x)=>Tau*x*fn(x),xLower,xUpper, accuracy)
     }
 }
-
-    
+  

@@ -9,7 +9,7 @@ export const Tau = 2 * Math.PI;
     @param  xLower lower bound of the function
     @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
-    */
+*/
 export function integrate(f, xLower, xUpper, accuracy) {
     let fn = createDerivableFunction(f);
     checkAccuracy(accuracy);
@@ -21,12 +21,12 @@ export function integrate(f, xLower, xUpper, accuracy) {
     return temp;
 }
 /**
-    @description returns the area of a shape bounded by the curve produced by the function, bound inputs, and the xy axis
+    @description returns the area of a shape bounded by the surface produced by the function, bound inputs, and the xy axis
     @param  f function to integrate
     @param  xLower lower bound of the function
     @param  xUpper upper bound of the function
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
-    */
+*/
 export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
     let fn = createDerivableFunction2D(f);
     checkAccuracy(accuracy);
@@ -45,7 +45,7 @@ export function integrate2D(f, xLower, xUpper, yLower, yUpper, accuracy) {
     @param  f function to derive
     @param  point x-value to integrate at
     @param  accuracy x-value to integrate at (closer to 0 is more acurate)
-    */
+*/
 export function derivitiveAtX(f, point, accuracy) {
     let fn = createDerivableFunction(f);
     checkAccuracy(accuracy);
