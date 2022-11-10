@@ -22,14 +22,13 @@ This library has functions for:
 
 
 ### Definite Integration
-Finds the area under a curve
+finds the area under a curve
 ```ts
 import {integrate} from '@bakedpotatolord/calclib'
 
 integrate(1,0,1,0.001) //returns 1
 4*integrate((x)=> Math.sqrt(1-x**2),0,1,0.0001) //returns ~PI
 integrate((x)=> 2*Math.cos(x),0,Math.PI/2,0.001) //returns  2
-
 ```
 
 ### Derivitive at a Point
@@ -50,7 +49,7 @@ areaAroundAxis(2,'x',0,1,0.0001) // returns 4*PI ~= 12.566
 areaAroundAxis((x)=>x**2,'y',0,1,0.0001) // returns PI/2 ~= 1.57
 ```
 
-### 2 variable integration
+### 2 Variable Integration
 returns the area of a shape bounded by the surface produced by the function, bound inputs, and the xy axis
 
 ```ts
