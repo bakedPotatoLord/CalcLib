@@ -85,4 +85,30 @@ export function areaAroundAxis(f:derivableFunction|number, axis:'x'|'y',xLower:n
         return integrate((x)=>Tau*x*fn(x),xLower,xUpper, accuracy)
     }
 }
+
+/** 
+    @description returns the length of an arc between two bounds
+    @param  f function to find the length of
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
+    @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
+*/
+export function arcLength(f:derivableFunction|number,xLower:number,xUpper:number,accuracy:number){
+	let fn= createDerivableFunction(f)
+  checkAccuracy(accuracy)
+	
+	return integrate((x)=>Math.sqrt(1+(derivitiveAtX(fn,x,accuracy)**2)),xLower,xUpper,accuracy)
+}
+
+/*
+
+export function functionsurfacearea(f:derivableFunction2D|number,xLower:number,xUpper:number, yLower:number, yUpper:number, accuracy:number){
+
+	let fn=createDerivableFunction2D(f)
+  checkAccuracy(accuracy)
   
+  
+return integrate2D((x,y)=> Math.sqrt(1+derivitiveAtX(fn,x,accuracy)**2+derivitiveAtX(fn,y,accuracy))
+}
+
+*/

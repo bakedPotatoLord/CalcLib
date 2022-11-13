@@ -1,4 +1,4 @@
-import {integrate,derivitiveAtX, areaAroundAxis, integrate2D} from "./index"
+import {integrate,derivitiveAtX, areaAroundAxis, integrate2D, arcLength,  } from "./index"
 
 test("integration",()=>{
   expect(integrate(1,0,1,0.001)).toBeCloseTo(1,0.001)
@@ -22,4 +22,7 @@ test("2dintegral",()=>{
   expect(integrate2D((x,y)=>Math.cos(x)*Math.cos(y),0,1,0,1,0.00001)).toBeCloseTo(0.708,0.0001)
 })
 
-
+test("arcLegnth", ()=>{
+  expect(arcLength((x)=>x**2,0,2,0.001)).toBeCloseTo(4.6467,0.001)
+  expect(arcLength((x)=>Math.sin(x),0,6,0.001)).toBeCloseTo(7.24256,0.001)
+})

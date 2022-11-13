@@ -43,3 +43,11 @@ export declare function derivitiveAtX(f: derivableFunction | number, point: numb
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
 export declare function areaAroundAxis(f: derivableFunction | number, axis: 'x' | 'y', xLower: number, xUpper: number, accuracy: number): number;
+/**
+    @description returns the length of an arc between two bounds
+    @param  f function to find the length of
+    @param  xLower lower bound of the function
+    @param  xUpper upper bound of the function
+    @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
+*/
+export declare function arcLength(f: derivableFunction | number, xLower: number, xUpper: number, accuracy: number): number;
