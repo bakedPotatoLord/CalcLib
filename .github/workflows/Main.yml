@@ -1,5 +1,9 @@
 name: Tests
 on: [push]
+
+env:
+  bestFood: potato
+
 jobs:
   build:
     runs-on: ubuntu-latest
