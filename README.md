@@ -18,7 +18,7 @@ This library has functions for:
 - [Derivite at a Point](#derivitive-at-a-point)
 - [Area Around an Axis](#area-around-axis)
 - [2 Variable Integration](#2-variable-integration)
-
+- [curve length](#curve-length)
 
 
 ### Definite Integration
@@ -59,3 +59,12 @@ integrate2D(1,0,1,0,1,0.001) // returns 1
 integrate2D((x,y)=>Math.cos(x)*Math.cos(y),0,1,0,1,0.00001) //returns ~0.708
 ```
 
+### Curve-length
+returns the length of an arc between two bounds
+
+```ts
+import {integrate2D} from '@bakedpotatolord/calclib'
+    
+expect(integrate2D(1,0,1,0,1,0.001))  //returns 1
+expect(integrate2D((x,y)=>Math.cos(x)*Math.cos(y),0,1,0,1,0.00001)) //returns 0.708
+```
