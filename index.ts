@@ -37,8 +37,10 @@ export function integrate(f:derivableFunction|number,xLower:number,xUpper:number
 /** 
     @description returns the area of a shape bounded by the surface produced by the function, bound inputs, and the xy axis
     @param  f function to integrate
-    @param  xLower lower bound of the function
-    @param  xUpper upper bound of the function
+    @param  xLower lower bound of the function on the x-axis
+    @param  xUpper upper bound of the function on the x-axis
+    @param  yLower lower bound of the function on the y-axis
+    @param  yUpper upper bound of the function on the y-axis
     @param  accuracy a number between 0.00000000001 and 1 (smaller is more accurate)
 */
 export function integrate2D(f:derivableFunction2D|number,xLower:number,xUpper:number,yLower:number,yUpper:number,accuracy:number){
